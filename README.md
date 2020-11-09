@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
+## Description
+
+Get creative with the inside of your Dad's birthday card this year and insert a dad joke that he's guaranteed to find much funnier than everyone else! Generate a random dad joke from the Home page, or head to the Search page to get a list of jokes that match your search terms.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
