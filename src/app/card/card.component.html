@@ -1,34 +1,38 @@
 <app-nav></app-nav>
 <div class="container">
-   <h1 class="text-center mt-5">Add Your Message</h1>
-   <div class="row justify-content-center mt-5">
-     <div class="col-10">
-       <div class="card shadow p-5">
-         <h2>Dear Dad, </h2>
-         <div class="card-content mt-3">
-          <div class="text-center mt-5">
-             <div *ngIf="showEllipses && !showButtons">
-               <div class="lds-ellipsis">
-                 <div></div>
-                 <div></div>
-                 <div></div>
-                 <div></div>
-               </div>
-             </div>
-               <div *ngIf="showButtons"
-                 class="mt-4 text-center"
-                 style="font-family: Arial, Helvetica, sans-serif !important;">
-                 <h4>Struggling for inspiration?</h4>
-                 <button
-                   class="btn btn-primary mr-2 mb-2 mb-md-0">Get Random Joke
-                   <fa-icon [icon]="faSyncAlt"></fa-icon></button>
-                 <button class="btn btn-dark">Search all Dad Jokes
-                   <fa-icon [icon]="faLaughSquint"></fa-icon>
-                 </button>
-                </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
+  <h1 class="text-center mt-5">Add Your Message</h1>
+  <div class="row justify-content-center mt-5">
+    <div class="col-10">
+      <div class="card shadow p-5">
+        <h2>Dear Dad, </h2>
+        <div class="card-content mt-3">
+          <div [class.text-center]="!dadJoke"
+            class="mt-5">
+            <div *ngIf="showEllipses && !showButtons && !dadJoke">
+              <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+            <div *ngIf="!!dadJoke">
+              <div class="h3 mb-5 joke"> {{ dadJoke.joke }}</div>
+            </div>
+            <div *ngIf="showButtons"
+              class="mt-4 text-center"
+              style="font-family: Arial, Helvetica, sans-serif !important;">
+              <h4 *ngIf="!dadJoke">Struggling for inspiration?</h4>
+              <button (click)="getJoke()"
+                class="btn btn-primary mr-2 mb-2 mb-md-0">Get Random Joke
+                <fa-icon [icon]="faSyncAlt"></fa-icon></button>
+              <button class="btn btn-dark">Search all Dad Jokes
+                <fa-icon [icon]="faLaughSquint"></fa-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavComponent } from './nav/nav.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DadJokeService } from './dadjoke.service';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,9 @@ import { NavComponent } from './nav/nav.component';
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [DadJokeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
