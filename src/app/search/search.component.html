@@ -1,0 +1,35 @@
+<app-nav></app-nav>
+<div class="container">
+  <form class="mt-4">
+    <div class="row justify-content-center">
+        <div class="input-group">
+          <input type="text"
+            autofocus
+            placeholder="Search for a term... Try 'cow' or 'clown'!"
+            class="form-control"
+            name="term"
+            #searchTerm
+            id="search-input" />
+          <div class="input-group-append">
+            <button #searchButton
+              id="search-button"
+              class="btn btn-primary"
+              (click)="emitSearch(searchTerm.value)">
+              search
+            </button>
+          </div>
+        </div>
+      </div>
+  </form>
+  <div class="row mt-3">
+        <table class="table table-striped">
+          <tbody>
+            <tr *ngFor="let joke of jokes">
+              <td>{{ joke.joke }}</td>
+              <td class="text-right align-middle text-sm"> <button class="btn btn-sm btn-secondary">select <fa-icon class="fa-xs" [icon]="faArrowRight"></fa-icon>
+              </button> </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
