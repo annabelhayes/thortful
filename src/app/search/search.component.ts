@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { DadJoke } from '../dadjoke';
 import { DadJokeService } from '../dadjoke.service';
 
@@ -9,12 +9,13 @@ import { DadJokeService } from '../dadjoke.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  faArrowRight = faArrowRight;
+  faPaperPlane = faPaperPlane;
   searchInputText: string;
   jokes: DadJoke[];
   constructor(private dadJokeService: DadJokeService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.dadJokeService.searchJokes().subscribe(jokes => (this.jokes = jokes));
   }
 
   emitSearch(term) {

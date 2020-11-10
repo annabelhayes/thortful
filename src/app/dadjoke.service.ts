@@ -21,8 +21,9 @@ export class DadJokeService {
       }));
   }
 
-  searchJokes(term: string) {
-    return this.http.get<Jokes>(this.url + `/search?term=${term}`, httpOptions).pipe(
+  searchJokes(term?: string) {
+    const path = term ? `/search?term=${term}` : `/search`;
+    return this.http.get<Jokes>(this.url + path, httpOptions).pipe(
       map(response => {
         const jokes = response.results;
         return jokes;
