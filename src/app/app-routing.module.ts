@@ -4,7 +4,12 @@ import { CardComponent } from './card/card.component';
 import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
-  { path: '', component: CardComponent },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
+  },
+  { path: 'home', component: CardComponent },
   { path: 'search', component: SearchComponent },
 ];
 

@@ -26,7 +26,7 @@
               <button (click)="getJoke()"
                 class="btn btn-primary mr-2 mb-2 mb-md-0">Get Random Joke
                 <fa-icon [icon]="faSyncAlt"></fa-icon></button>
-              <button class="btn btn-dark">Search all Dad Jokes
+              <button (click)="navigateTo('search')" class="btn btn-dark">Search all Dad Jokes
                 <fa-icon [icon]="faLaughSquint"></fa-icon>
               </button>
             </div>
