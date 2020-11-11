@@ -26,7 +26,8 @@
       <tbody>
         <tr *ngFor="let joke of jokes">
           <td>{{ joke.joke }}</td>
-          <td class="text-right align-middle text-sm"> <button class="btn btn-sm btn-secondary">
+          <td class="text-right align-middle text-sm">
+            <button class="btn btn-sm btn-secondary" (click)="navigateToJoke(joke.id)">
               <fa-icon class="fa-sm"
                 [icon]="faPaperPlane"></fa-icon>
             </button> </td>
