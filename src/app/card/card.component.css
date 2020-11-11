@@ -11,7 +11,7 @@ p {
   text-align: center;
 }
 
-h2 {
+#animatedAddress {
   white-space: nowrap;
   overflow: hidden;
   width: 30em;

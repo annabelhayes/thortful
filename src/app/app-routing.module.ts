@@ -10,6 +10,7 @@ const routes: Routes = [
     redirectTo: 'home'
   },
   { path: 'home', component: CardComponent },
+  { path: 'home/:id', component: CardComponent },
   { path: 'search', component: SearchComponent },
 ];
 

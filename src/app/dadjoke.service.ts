@@ -21,7 +21,14 @@ export class DadJokeService {
       }));
   }
 
-  searchJokes(term?: string) {
+  getJokeById(id): Observable<any> {
+    return this.http.get(this.url + `/j/${id}`, httpOptions).pipe(
+      map(res => {
+        return res;
+      }));
+  }
+
+  searchJokes(term?: string): Observable<any> {
     const path = term ? `/search?term=${term}` : `/search`;
     return this.http.get<Jokes>(this.url + path, httpOptions).pipe(
       map(response => {
