@@ -1,0 +1,11 @@
+.navbar {
+  background-color: #616F8C;
+}
+
+.inactive-link {
+  color: #B4BCCC !important;
+}
+
+.active-link {
+  color: #FFFFFF !important;
+}
