@@ -19,11 +19,11 @@ export class SearchComponent implements OnInit {
     this.dadJokeService.searchJokes().subscribe(jokes => (this.jokes = jokes));
   }
 
-  navigateToJoke(id) {
+  navigateToJoke(id: string) {
     this.router.navigate([`home/${id}`]);
   }
 
-  emitSearch(term) {
+  emitSearch(term: string) {
     this.dadJokeService.searchJokes(term).subscribe(jokes => (this.jokes = jokes));
   }
 }

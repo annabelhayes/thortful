@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Jokes } from './dadjoke';
+import { DadJoke, Jokes } from './dadjoke';
 
 const httpOptions = {
   headers: new HttpHeaders({ Accept: 'application/json' })
 };
-
 @Injectable()
 export class DadJokeService {
   url = 'https://icanhazdadjoke.com/';
@@ -15,20 +14,20 @@ export class DadJokeService {
   constructor(private http: HttpClient) { }
 
   getJoke(): Observable<any> {
-    return this.http.get(this.url, httpOptions).pipe(
+    return this.http.get<DadJoke>(this.url, httpOptions).pipe(
       map(res => {
         return res;
       }));
   }
 
-  getJokeById(id): Observable<any> {
-    return this.http.get(this.url + `/j/${id}`, httpOptions).pipe(
+  getJokeById(id): Observable<DadJoke> {
+    return this.http.get<DadJoke>(this.url + `j/${id}`, httpOptions).pipe(
       map(res => {
         return res;
       }));
   }
 
-  searchJokes(term?: string): Observable<any> {
+  searchJokes(term?: string): Observable<DadJoke[]> {
     const path = term ? `/search?term=${term}` : `/search`;
     return this.http.get<Jokes>(this.url + path, httpOptions).pipe(
       map(response => {

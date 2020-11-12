@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DadJokeService } from '../dadjoke.service';
 import { DadJoke } from '../dadjoke';
 import { faLaughSquint, faSyncAlt } from '@fortawesome/free-solid-svg-icons';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -38,7 +38,7 @@ export class CardComponent implements OnInit {
     });
   }
 
-  getJokeById(params): void {
+  getJokeById(params: Params): void {
     const id = params && params.id;
     this.dadJokeService.getJokeById(id)
       .subscribe(joke => (

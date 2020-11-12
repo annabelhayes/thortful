@@ -1,8 +1,8 @@
 export interface DadJoke {
-  id: number;
+  id: string;
   joke: string;
 }
 
 export interface Jokes {
-  results: [DadJoke];
+  results: DadJoke[];
 }
