@@ -34,5 +34,10 @@
         </tr>
       </tbody>
     </table>
+    <h4 class="text-muted" *ngIf="noResults">
+      Sorry, we couldn't find any jokes matching your search.<br><br>
+      Try 'nun' for one of our favourites! <fa-icon class="fa-sm"
+      [icon]="faGrin"></fa-icon>
+      </h4>
   </div>
 </div>

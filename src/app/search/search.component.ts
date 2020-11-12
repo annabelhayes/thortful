@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { faFrownOpen, faGrinTears, faGrinWink, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import { DadJoke } from '../dadjoke';
 import { DadJokeService } from '../dadjoke.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit {
   faPaperPlane = faPaperPlane;
+  faGrin = faGrinTears;
   searchInputText: string;
+  noResults = false;
   jokes: DadJoke[];
   constructor(private dadJokeService: DadJokeService, public router: Router) { }
 
@@ -24,6 +26,14 @@ export class SearchComponent implements OnInit {
   }
 
   emitSearch(term: string) {
-    this.dadJokeService.searchJokes(term).subscribe(jokes => (this.jokes = jokes));
+    this.dadJokeService.searchJokes(term).subscribe(jokes => {
+      this.jokes = jokes;
+      if (!jokes || jokes.length === 0) {
+        this.noResults = true;
+      }
+      else {
+        this.noResults = false;
+      }
+    });
   }
 }
